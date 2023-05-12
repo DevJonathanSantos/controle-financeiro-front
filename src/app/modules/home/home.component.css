@@ -1,13 +1,24 @@
+#container{
+    /* background: linear-gradient(180deg ,#008B8B,#191970  ); */
+    background: linear-gradient(#e5edf1,#9fc0cf);
+    background: linear-gradient(#008B8B,#e5edf1);
+
+}
+
 .toolbar{
     width: 20%;
     height: 100vh;
     /* background-color: #8A2BE2; */
-    background: linear-gradient(180deg ,#008B8B,#191970  );
-    background: linear-gradient();
+    /* background: linear-gradient(180deg ,#008B8B,#191970  ); */
     display: flex;
       flex-direction: column;
       align-items: center;
-    color: #fff;
+    color:#040305;
+backdrop-filter: blur(18px);
+background: rgba(230,235,240,.7);
+border: 2px solid rgba(230,235,240,.7);
+box-shadow: 0 0 30px rgba(0,0,0,.05);
+
 
 }
  .toolbar h1{
@@ -37,7 +48,8 @@
     font-size: 18px;
     width: 90%;
     margin-top: 60px;
-    color: #C0C0C0;
+    /* color: #C0C0C0; */
+    color: #040305;
 }
 
 ul{
