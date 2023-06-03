@@ -1,20 +1,54 @@
-<div id="container">
-  <div class="toolbar">
-    <h1 class=""><i class="bi bi-cash-coin"></i>Managed Money</h1>
-    <div class="perfil">
-      <img
-        src="https://user-images.githubusercontent.com/2546640/56708992-deee8780-66ec-11e9-9991-eb85abb1d10a.png"
-      />
-      <h3>Jonathan Oliveira</h3>
-    </div>
-    <nav>
-        <ul>
-          <li style="color: #008B8B;"> <i class="bi bi-card-list"></i> Dashboard</li>
-          <li> <i class="bi bi-card-list"></i> Controllers</li>
-          <li> <i class="bi bi-gear"></i> Settings</li>
-        </ul>
-    </nav>
-    <footer><i class="bi bi-box-arrow-in-left"></i> Log out</footer>
+<header><h2>Débitos</h2></header>
+
+<form class="row g-3">
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Nome</label>
+    <input type="email" class="form-control" id="inputEmail4" />
   </div>
-  <div id="conteudo"></div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Categoria</label>
+    <select id="inputState" class="form-select">
+      <option selected>Choose...</option>
+      <option>...</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <label for="inputPassword4" class="form-label">Tipo de pagamento</label>
+    <select id="inputState" class="form-select">
+      <option selected>Choose...</option>
+      <option>...</option>
+    </select>
+  </div>
+  <div class="col-md-1">
+    <label for="inputPassword4" class="form-label">Qtd</label>
+    <select id="inputState" class="form-select">
+      <option selected>1</option>
+      <option>...</option>
+    </select>
+  </div>
+  <div class="col-md-2">
+    <label for="inputEmail4" class="form-label">Valor</label>
+    <input type="" class="form-control" id="inputEmail4" />
+  </div>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Data</label>
+    <input type="date" class="form-control" id="inputEmail4" />
+  </div>
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary" style="float: right">
+      Adicionar
+    </button>
+  </div>
+</form>
+
+<div class="col-12 cards">
+  <div class="card" style="background: #d6eaf8">
+    <span>Janeiro</span>
+    <p>R$ 599,00</p>
+  </div>
+  <div class="card" *ngFor="let item of items; let i = index">
+    <span>Janeiro</span>
+    <p>R$ 599,00</p>
+  </div>
 </div>

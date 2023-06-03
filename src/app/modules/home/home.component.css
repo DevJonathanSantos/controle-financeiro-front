@@ -1,64 +1,26 @@
-#container{
-    /* background: linear-gradient(180deg ,#008B8B,#191970  ); */
-    background: linear-gradient(#e5edf1,#9fc0cf);
-    background: linear-gradient(#008B8B,#e5edf1);
-
+header{
+    margin: auto;
+    text-align: center;
 }
 
-.toolbar{
-    width: 20%;
-    height: 100vh;
-    /* background-color: #8A2BE2; */
-    /* background: linear-gradient(180deg ,#008B8B,#191970  ); */
-    display: flex;
-      flex-direction: column;
-      align-items: center;
-    color:#040305;
-backdrop-filter: blur(18px);
-background: rgba(230,235,240,.7);
-border: 2px solid rgba(230,235,240,.7);
-box-shadow: 0 0 30px rgba(0,0,0,.05);
-
-
-}
- .toolbar h1{
-    margin-top: 60px;
+h2{
     font-size: 30px;
-
 }
 
-.perfil {
+.cards{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 60px;
-
+    flex-wrap: wrap;
+    margin-top: 15px;
 }
 
-.perfil  h3{
-    font-size: 16px;
+.card{
+    width: calc(25% - 20px);
+    height: calc(20% - 20px);
+    margin: 10px;
+    padding: 5px;
+    background: #f8f9f9;
+}
+
+.card p{
     font-weight: bold;
-}
-.perfil img{
-    width: 30%;
-}
-
-.toolbar nav{
-    font-size: 18px;
-    width: 90%;
-    margin-top: 60px;
-    /* color: #C0C0C0; */
-    color: #040305;
-}
-
-ul{
-    list-style:none;
-}
-
-footer{
-    position: absolute;
-    bottom: 30px;
-    font-size: 18px;
-
 }
