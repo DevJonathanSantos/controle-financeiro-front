@@ -30,25 +30,69 @@
     <label for="inputEmail4" class="form-label">Valor</label>
     <input type="" class="form-control" id="inputEmail4" />
   </div>
-  <div class="col-md-6">
+  <div class="col-md-3">
     <label for="inputEmail4" class="form-label">Data</label>
     <input type="date" class="form-control" id="inputEmail4" />
   </div>
-
-  <div class="col-12">
-    <button type="submit" class="btn btn-primary" style="float: right">
-      Adicionar
-    </button>
+  <div class="col-md-3 button">
+    <button type="submit" class="btn btn-primary">Adicionar</button>
   </div>
 </form>
 
 <div class="col-12 cards">
-  <div class="card" style="background: #d6eaf8">
-    <span>Janeiro</span>
-    <p>R$ 599,00</p>
-  </div>
-  <div class="card" *ngFor="let item of items; let i = index">
-    <span>Janeiro</span>
-    <p>R$ 599,00</p>
+  <button (click)="showDialog()" class="btn btn-link">Mostrar todas</button>
+  <div>
+    <div class="card" style="background: #d6eaf8">
+      <span>Janeiro</span>
+      <p>R$ 599,00</p>
+    </div>
+    <div class="card" *ngFor="let item of items; let i = index">
+      <span>Janeiro</span>
+      <p>{{ 599 | currency : "USD" }}</p>
+    </div>
   </div>
 </div>
+
+<p-dialog
+  header="Faturas"
+  [(visible)]="visible"
+  [style]="{ width: '80vw', }"
+  styleClass="conteudo"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <div style="text-align: center; background: #d6eaf8; border-radius: 10px">
+    <h3>Junho - 2023</h3>
+    <p style="font-weight: bold">{{ 599 | currency : "USD" }}</p>
+  </div>
+  <p-table [value]="produtos" [tableStyle]="{ 'min-width': '60rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="code" style="width: 20%">
+          Code <p-sortIcon field="code"></p-sortIcon>
+        </th>
+        <th pSortableColumn="name" style="width: 20%">
+          Name <p-sortIcon field="name"></p-sortIcon>
+        </th>
+        <th pSortableColumn="category" style="width: 20%">
+          Category <p-sortIcon field="category"></p-sortIcon>
+        </th>
+        <th pSortableColumn="quantity" style="width: 20%">
+          Quantity <p-sortIcon field="quantity"></p-sortIcon>
+        </th>
+        <th pSortableColumn="price" style="width: 20%">
+          Price <p-sortIcon field="price"></p-sortIcon>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td>{{ product.code }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.quantity }}</td>
+        <td>{{ product.price | currency : "USD" }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-dialog>

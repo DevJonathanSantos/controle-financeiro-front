@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
-import { PanelMenuModule } from 'primeng/panelmenu';
-
+import { TableModule } from 'primeng/table';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -10,8 +10,9 @@ import { PanelMenuModule } from 'primeng/panelmenu';
   ],
   imports: [
     CommonModule,
-    PanelMenuModule
-  ],exports:[
+    DialogModule,
+    TableModule
+  ], exports: [
     HomeComponent
   ]
 })

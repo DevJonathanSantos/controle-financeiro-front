@@ -7,10 +7,22 @@ h2{
     font-size: 30px;
 }
 
+form .button {
+    top: 15px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
 .cards{
+    margin-top: 15px;
+
+}
+
+.cards div{
     display: flex;
     flex-wrap: wrap;
-    margin-top: 15px;
 }
 
 .card{
@@ -24,3 +36,8 @@ h2{
 .card p{
     font-weight: bold;
 }
+
+:host /deep/.p-dialog{
+    max-height: 100% !important;
+}
+
