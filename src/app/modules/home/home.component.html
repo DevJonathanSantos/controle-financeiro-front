@@ -42,13 +42,13 @@
 <div class="col-12 cards">
   <button (click)="showDialog()" class="btn btn-link">Mostrar todas</button>
   <div>
-    <div class="card" style="background: #d6eaf8">
-      <span>Janeiro</span>
-      <p>R$ 599,00</p>
-    </div>
-    <div class="card" *ngFor="let item of items; let i = index">
-      <span>Janeiro</span>
-      <p>{{ 599 | currency : "USD" }}</p>
+    <div
+      class="card"
+      *ngFor="let item of parcelsGroupedByMonth"
+      [ngStyle]="{ background: item.isCurrentMonth && '#d6eaf8' }"
+    >
+      <span>{{ monthNames[item.month] }}</span>
+      <p>{{ item.totalMonth | currency : "BRL" }}</p>
     </div>
   </div>
 </div>
@@ -56,14 +56,13 @@
 <p-dialog
   header="Faturas"
   [(visible)]="visible"
-  [style]="{ width: '80vw', }"
-  styleClass="conteudo"
+  [style]="{ width: '80vw', height: '100%' }"
   [draggable]="false"
   [resizable]="false"
 >
   <div style="text-align: center; background: #d6eaf8; border-radius: 10px">
     <h3>Junho - 2023</h3>
-    <p style="font-weight: bold">{{ 599 | currency : "USD" }}</p>
+    <p style="font-weight: bold">{{ 599 | currency : "BRL" }}</p>
   </div>
   <p-table [value]="produtos" [tableStyle]="{ 'min-width': '60rem' }">
     <ng-template pTemplate="header">

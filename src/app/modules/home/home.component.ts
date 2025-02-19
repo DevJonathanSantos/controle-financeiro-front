@@ -1,13 +1,56 @@
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { HomeService } from './home.service';
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
-    styleUrls: ['./home.component.css']
+    styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
+    constructor(private homeService: HomeService) { }
+
     items: string[] = Array(11).fill('Item');
-    visible: boolean = true;
+    visible: boolean = false;
+    teste: boolean = true;
+
+    parcelsGroupedByMonth: any[] = [];
+
+    monthNames: { [key: number]: string } = {
+        1: "Janeiro",
+        2: "Fevereiro",
+        3: "Março",
+        4: "Abril",
+        5: "Maio",
+        6: "Junho",
+        7: "Julho",
+        8: "Agosto",
+        9: "Setembro",
+        10: "Outubro",
+        11: "Novembro",
+        12: "Dezembro"
+    };
+
+    ngOnInit() {
+        this.getParcelsGroupedByMonth();
+    }
+
+    getParcelsGroupedByMonth() {
+        this.homeService
+            .getParcelsGroupedByMonth()
+            .subscribe(({ data }) => {
+                this.parcelsGroupedByMonth = (data);
+            });
+    }
+
+
+
+    //   categories: OpitionsType[] = [
+    //     { id: 1, name: '' },
+    //     { id: 1, name: '' },
+    //     { id: 1, name: '' },
+    //     { id: 1, name: '' },
+    //     { id: 1, name: '' },
+    // ];
 
     produtos = [
         {
@@ -20,7 +63,7 @@ export class HomeComponent {
             category: 'Accessories',
             quantity: 24,
             inventoryStatus: 'INSTOCK',
-            rating: 5
+            rating: 5,
         },
         {
             id: '1001',
@@ -32,7 +75,7 @@ export class HomeComponent {
             category: 'Accessories',
             quantity: 61,
             inventoryStatus: 'OUTOFSTOCK',
-            rating: 4
+            rating: 4,
         },
         {
             id: '1002',
@@ -44,7 +87,7 @@ export class HomeComponent {
             category: 'Fitness',
             quantity: 2,
             inventoryStatus: 'LOWSTOCK',
-            rating: 3
+            rating: 3,
         },
         {
             id: '1003',
@@ -56,7 +99,7 @@ export class HomeComponent {
             category: 'Clothing',
             quantity: 25,
             inventoryStatus: 'INSTOCK',
-            rating: 5
+            rating: 5,
         },
         {
             id: '1004',
@@ -68,7 +111,7 @@ export class HomeComponent {
             category: 'Accessories',
             quantity: 73,
             inventoryStatus: 'INSTOCK',
-            rating: 4
+            rating: 4,
         },
         {
             id: '1005',
@@ -80,7 +123,7 @@ export class HomeComponent {
             category: 'Accessories',
             quantity: 0,
             inventoryStatus: 'OUTOFSTOCK',
-            rating: 4
+            rating: 4,
         },
         {
             id: '1006',
@@ -92,7 +135,7 @@ export class HomeComponent {
             category: 'Accessories',
             quantity: 5,
             inventoryStatus: 'LOWSTOCK',
-            rating: 3
+            rating: 3,
         },
         {
             id: '1007',
@@ -104,7 +147,7 @@ export class HomeComponent {
             category: 'Accessories',
             quantity: 23,
             inventoryStatus: 'INSTOCK',
-            rating: 5
+            rating: 5,
         },
         {
             id: '1008',
@@ -116,7 +159,7 @@ export class HomeComponent {
             category: 'Electronics',
             quantity: 2,
             inventoryStatus: 'LOWSTOCK',
-            rating: 4
+            rating: 4,
         },
         {
             id: '1009',
@@ -128,7 +171,7 @@ export class HomeComponent {
             category: 'Electronics',
             quantity: 63,
             inventoryStatus: 'INSTOCK',
-            rating: 3
+            rating: 3,
         },
         {
             id: '1010',
@@ -140,15 +183,9 @@ export class HomeComponent {
             category: 'Accessories',
             quantity: 0,
             inventoryStatus: 'OUTOFSTOCK',
-            rating: 4
-        }]
-    constructor() {
-
-    }
-    ngOnInit() {
-
-    }
-
+            rating: 4,
+        },
+    ];
 
     showDialog() {
         this.visible = true;
